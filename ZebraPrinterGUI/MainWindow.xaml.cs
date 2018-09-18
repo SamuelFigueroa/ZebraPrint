@@ -25,7 +25,6 @@ namespace ZebraPrinterGUI
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public int ExitStatus { get; set; }
         
         public delegate void ConnectToServer(
             Dispatcher dispatcher,
@@ -37,6 +36,7 @@ namespace ZebraPrinterGUI
             );
 
         public ConnectToServer _connectToServer;
+
         
         public MainWindow(ConnectToServer connectToServer, string user, string serverAddress, string serverStatus)
         {
@@ -47,7 +47,6 @@ namespace ZebraPrinterGUI
             server.Text = serverAddress;
             username.Text = user;
             serverHelperText.Content = serverStatus;
-            ExitStatus = 0;
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -57,9 +56,7 @@ namespace ZebraPrinterGUI
             serverHelperText.Content = null;
             usernameHelperText.Content = null;
             passwordHelperText.Content = null;
-            _connectToServer(Dispatcher, Username, Password, serverHelperText, usernameHelperText, passwordHelperText);
-            ExitStatus = 1;
-            
+            _connectToServer(Dispatcher, Username, Password, serverHelperText, usernameHelperText, passwordHelperText);            
         }
 
         private void Window_Closed(object sender, EventArgs e)

@@ -19,14 +19,15 @@ internal class HttpClientService
 
     public HttpClientService(HttpClient client, IServer server, IServiceProvider services, IConfiguration configuration)
     {
-        BaseAddress = "10.0.2.2:8080";
+
+        BaseAddress = configuration.GetValue<string>("server");
         client.BaseAddress = new Uri($"http://{BaseAddress}/");
         client.DefaultRequestHeaders.Add("Accept", "*/*");
 
         Services = services;
         Client = client;
-        PrinterHubName = "Test_hub";
-        PrinterHubAddress = server.Features.Get<IServerAddressesFeature>().Addresses.FirstOrDefault() + "/zph";
+        PrinterHubName = configuration.GetValue<string>("hubname");
+        PrinterHubAddress = configuration.GetValue<string>("urls") + "/zph";
     }
 
     public IServiceProvider Services { get; }

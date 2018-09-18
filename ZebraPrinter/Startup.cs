@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.SignalR;
 using ZebraPrint.Hubs;
 using Microsoft.AspNetCore.Cors;
 using ZebraPrinterGUI;
+using Microsoft.Extensions.Configuration;
 
 namespace ZebraPrinter
 {
@@ -32,9 +33,11 @@ namespace ZebraPrinter
             //services.AddHostedService<PrinterStatusService>();
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IConfiguration configuration)
         {
+            string serverAddress = configuration.GetValue<string>("server");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -45,7 +48,7 @@ namespace ZebraPrinter
                        .AllowAnyMethod()
                        .AllowAnyHeader()
                        .AllowCredentials()
-                       .WithOrigins("http://localhost:8080"));
+                       .WithOrigins($"http://{serverAddress}"));
 
             app.UseSignalR(routes =>
             {

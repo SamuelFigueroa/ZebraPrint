@@ -24,7 +24,7 @@ internal class UserInterface : IUserInterface
 {
     private string username;
     private string password;
-    private int exitStatus;
+    public int ExitStatus { get; set; }
     private HttpClientService _httpClientService;
     private MainWindow _zebraPrinterGUI;
 
@@ -41,6 +41,7 @@ internal class UserInterface : IUserInterface
     {
         Console.WriteLine("Interface starting...");
         _httpClientService = httpClientService;
+        ExitStatus = 0;
         Task<(string serverStatus, string username)> tryConnect = TryConnect();
         tryConnect.Wait();
         (string serverStatus, string username) = tryConnect.Result;
@@ -48,13 +49,12 @@ internal class UserInterface : IUserInterface
             _zebraPrinterGUI = new MainWindow(ConnectToServer, username, _httpClientService.BaseAddress, serverStatus);
             _zebraPrinterGUI.Show();
             Dispatcher.Run();
-            exitStatus = _zebraPrinterGUI.ExitStatus;
             username = _zebraPrinterGUI.Username;
             password = _zebraPrinterGUI.Password;
             return Task.CompletedTask;
         });
         task.Wait();
-        if (exitStatus == 0)
+        if (ExitStatus == 0)
             applicationLifetime.StopApplication();
 
     }
@@ -65,6 +65,7 @@ internal class UserInterface : IUserInterface
             label.Content = (string)jProperty.Value;
 
     }
+
     public async void ConnectToServer(
         Dispatcher dispatcher,
         string username,
@@ -85,10 +86,12 @@ internal class UserInterface : IUserInterface
             parseJsonResponse(errors, "HttpRequest", ref serverHelperText);
             parseJsonResponse(errors, "login", ref usernameHelperText);
             parseJsonResponse(errors, "password", ref passwordHelperText);
+            ExitStatus = 0;
         }
        else
         {
             Console.WriteLine(response);
+            ExitStatus = 1;
             dispatcher.InvokeShutdown();
         }
     }
