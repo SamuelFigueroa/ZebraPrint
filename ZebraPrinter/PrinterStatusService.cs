@@ -9,10 +9,20 @@ internal class PrinterStatusService : IHostedService, IDisposable
 {
 
     private Timer _timer;
+    private IPrinterInterface _printerInterface;
 
     public PrinterStatusService(IServiceProvider services)
     {
         Services = services;
+        _printerInterface = Services.CreateScope().ServiceProvider.GetRequiredService<IPrinterInterface>();
+        //using (var scope = Services.CreateScope())
+        //{
+        //    var scopedProcessingService =
+        //        scope.ServiceProvider
+        //            .GetRequiredService<IPrinterInterface>();
+
+        //    scopedProcessingService.ReadAvailableData();
+        //}
     }
 
     public IServiceProvider Services { get; }
@@ -29,15 +39,8 @@ internal class PrinterStatusService : IHostedService, IDisposable
 
     private void DoWork(object state)
     {
-        //Console.WriteLine("Timed Background Service is working.");
-        using (var scope = Services.CreateScope())
-        {
-            var scopedProcessingService =
-                scope.ServiceProvider
-                    .GetRequiredService<IPrinterInterface>();
-
-            scopedProcessingService.ReadAvailableData();
-        }
+        Console.WriteLine("Timed Background Service is working.");
+        //_printerInterface.ReadAvailableData();
     }
 
     public Task StopAsync(CancellationToken cancellationToken)

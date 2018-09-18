@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZebraPrinter", "ZebraPrinter\ZebraPrinter.csproj", "{90AA1192-FF9E-43C3-AB39-D4589822F2ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZebraPrinter", "ZebraPrinter\ZebraPrinter.csproj", "{90AA1192-FF9E-43C3-AB39-D4589822F2ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZebraPrinterGUI", "ZebraPrinterGUI\ZebraPrinterGUI.csproj", "{03B25AA0-F0C2-4A89-A300-8201185B825A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90AA1192-FF9E-43C3-AB39-D4589822F2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90AA1192-FF9E-43C3-AB39-D4589822F2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90AA1192-FF9E-43C3-AB39-D4589822F2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B25AA0-F0C2-4A89-A300-8201185B825A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B25AA0-F0C2-4A89-A300-8201185B825A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B25AA0-F0C2-4A89-A300-8201185B825A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B25AA0-F0C2-4A89-A300-8201185B825A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SignalR;
 using ZebraPrint.Hubs;
 using Microsoft.AspNetCore.Cors;
+using ZebraPrinterGUI;
+
 namespace ZebraPrinter
 {
     public class Startup
@@ -22,8 +24,12 @@ namespace ZebraPrinter
             {
                 hubOptions.EnableDetailedErrors = true;
             });
+            services.AddHttpClient<HttpClientService>();
             services.AddSingleton<IPrinterInterface, PrinterInterface>();
-            services.AddHostedService<PrinterStatusService>();
+            services.AddSingleton<PrinterStatusService>();
+            services.AddSingleton<IUserInterface, UserInterface>();
+            
+            //services.AddHostedService<PrinterStatusService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +56,8 @@ namespace ZebraPrinter
             {
                 await context.Response.WriteAsync("Hello World!");
             });
+
+            app.ApplicationServices.GetService<IUserInterface>();
         }
     }
 }

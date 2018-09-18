@@ -51,8 +51,8 @@ internal class PrinterInterface : IPrinterInterface
         {
             _printerHub = scope.ServiceProvider.GetRequiredService<IHubContext<PrinterHub>>();
         }
-        
-        DiscoverPrinters();
+
+        //DiscoverPrinters();
     }
 
     public IServiceProvider Services { get; }

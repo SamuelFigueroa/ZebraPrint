@@ -16,12 +16,13 @@
       }
     },
     "ZebraPrinter": {
+      "applicationUrl": "http://10.125.208.198:8000",
       "commandName": "Project",
-      "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://10.125.208.198:3000"
+      "serverAddress": "http://10.0.2.2:8080/",
+      "hubName": "TestHub"
     }
   }
 }

@@ -1,0 +1,17 @@
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.csprojAssemblyReference.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\MainWindow.g.cs
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\App.g.cs
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI_MarkupCompile.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Debug\ZebraPrinterGUI.exe.config
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Debug\ZebraPrinterGUI.exe
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Debug\ZebraPrinterGUI.pdb
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\MainWindow.baml
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.g.resources
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.Properties.Resources.resources
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.csproj.GenerateResource.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.csproj.CoreCompileInputs.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.csproj.CopyComplete
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.exe
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Debug\ZebraPrinterGUI.pdb

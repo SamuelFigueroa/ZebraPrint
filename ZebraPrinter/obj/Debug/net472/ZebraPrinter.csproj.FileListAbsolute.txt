@@ -10,6 +10,7 @@ C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\ZebraPrin
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\CsvHelper.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\FluentFTP.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\SharpSnmpLib.dll
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\System.Net.Http.Formatting.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.AspNetCore.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.AspNetCore.Authentication.Abstractions.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.AspNetCore.Authentication.Core.dll
@@ -60,6 +61,7 @@ C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.Http.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.Logging.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Microsoft.Extensions.Logging.Configuration.dll
@@ -91,6 +93,9 @@ C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\SdkApi_De
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\SdkApi_Desktop_Usb.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\System.Runtime.WindowsRuntime.dll
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\Windows.winmd
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\ZebraPrinterGUI.exe
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\ZebraPrinterGUI.pdb
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\ZebraPrinterGUI.exe.config
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.csproj.CopyComplete
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.exe
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.pdb
