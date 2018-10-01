@@ -60,10 +60,10 @@ internal class HttpClientService
             string imgSrc = htmlDoc.DocumentNode.SelectSingleNode("//body/div/img")
                 .Attributes["src"].Value;
             imageData = await hubClient.GetByteArrayAsync(hubClient.BaseAddress.AbsoluteUri + imgSrc);
-            MemoryStream stream = new MemoryStream(imageData);
-            Image image = Image.FromStream(stream);
-            image.Save(@"C:\Users\sammy\OneDrive\Documents\test1.png", System.Drawing.Imaging.ImageFormat.Png);
-            stream.Close();
+            //MemoryStream stream = new MemoryStream(imageData);
+            //Image image = Image.FromStream(stream);
+            //image.Save(@"C:\Users\sammy\OneDrive\Documents\test1.png", System.Drawing.Imaging.ImageFormat.Png);
+            //stream.Close();
         }
         catch (Exception e)
         {

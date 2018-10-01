@@ -26,7 +26,9 @@ internal interface IPrinterInterface
     Task<(JObject errors, bool? response)> DeletePrinterJob(string connection_name, string jobID);
     string[] GetConnectedPrinters();
     Dictionary<string, Connection> GetConnections();
-    
+    void incrementPreviewJobCount(string connection_name);
+    void decrementPreviewJobCount(string connection_name);
+
 }
 
 internal class PrinterInterface : IPrinterInterface
@@ -37,8 +39,17 @@ internal class PrinterInterface : IPrinterInterface
     private Dictionary<string, bool> printerStatus;
     private Dictionary<string, string> dataToSend;
     private Dictionary<string, JObject> currentJob;
+    private Dictionary<string, int> previewJobCount;
     private string error;
     
+    public void decrementPreviewJobCount(string connection_name)
+    {
+        previewJobCount[connection_name] = previewJobCount[connection_name] - 1;
+    }
+    public void incrementPreviewJobCount(string connection_name)
+    {
+        previewJobCount[connection_name] = previewJobCount[connection_name] + 1;
+    }
     public bool PrinterIsReady(string connection_name)
     {
         return printerStatus[connection_name];
@@ -62,6 +73,7 @@ internal class PrinterInterface : IPrinterInterface
         printerStatus = new Dictionary<string, bool>();
         dataToSend = new Dictionary<string, string>();
         currentJob = new Dictionary<string, JObject>();
+        previewJobCount = new Dictionary<string, int>();
         Services = services;
         _httpClientService = httpClientService;
         using (var scope = Services.CreateScope())
@@ -105,9 +117,11 @@ internal class PrinterInterface : IPrinterInterface
                     }
                     else
                     {
-                        await CompleteJob(entry.Key, currentJob[entry.Key]);
+                        if (previewJobCount[entry.Key] > 0)
+                            decrementPreviewJobCount(entry.Key);
+                        else
+                            await CompleteJob(entry.Key, currentJob[entry.Key]);
                     }
-
                 }
                 
                 connection.Close();
@@ -341,6 +355,7 @@ internal class PrinterInterface : IPrinterInterface
                 printerStatus.Add(name, printer.GetCurrentStatus().isReadyToPrint);
                 dataToSend.Add(name, "");
                 currentJob.Add(name, new JObject());
+                previewJobCount.Add(name, 0);
                 if (linkOsPrinter != null)
                 {
                     linkOsPrinter.ConfigureAlert(new PrinterAlert(AlertCondition.ALL_MESSAGES, AlertDestination.USB, true, true, null, 0, false));

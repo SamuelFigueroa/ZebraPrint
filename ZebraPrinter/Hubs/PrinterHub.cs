@@ -22,26 +22,27 @@ namespace ZebraPrint.Hubs
 
         public async Task PreviewZpl(string connection_name, string zpl)
         {
-            JObject errors = new JObject();
-            byte[] imageData = null;
             using (var scope = Services.CreateScope())
             {
                 var printerInterface =
                     scope.ServiceProvider
                         .GetRequiredService<IPrinterInterface>();
 
-                 (errors, imageData) = await printerInterface.PreviewZpl(zpl);
-            }
-            if (errors.HasValues)
-            {
-                string errorMessage = (string)errors.Property("HttpRequest");
-                await Clients.Caller.SendAsync("LogMessage", connection_name, errorMessage);
-            }
-            else
-            {
-                await Clients.Caller.SendAsync("ShowPreview", connection_name, imageData);
-            }
+                JObject errors = new JObject();
+                byte[] imageData = null;
+                (errors, imageData) = await printerInterface.PreviewZpl(zpl);
 
+                if (errors.HasValues)
+                {
+                    string errorMessage = (string)errors.Property("HttpRequest");
+                    await Clients.Caller.SendAsync("LogMessage", connection_name, errorMessage);
+                }
+                else
+                {
+                    printerInterface.incrementPreviewJobCount(connection_name);
+                    await Clients.Caller.SendAsync("ShowPreview", connection_name, Convert.ToBase64String(imageData));
+                }
+            }
         }
         public async Task GetPrinters()
         {
