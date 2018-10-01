@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.SignalR;
 using ZebraPrint.Hubs;
-using Microsoft.AspNetCore.Cors;
-using ZebraPrinterGUI;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace ZebraPrinter
 {
@@ -27,10 +21,9 @@ namespace ZebraPrinter
             });
             services.AddHttpClient<HttpClientService>();
             services.AddSingleton<IPrinterInterface, PrinterInterface>();
-            services.AddSingleton<PrinterStatusService>();
             services.AddSingleton<IUserInterface, UserInterface>();
             
-            //services.AddHostedService<PrinterStatusService>();
+            services.AddHostedService<PrinterStatusService>();
         }
 
 
@@ -57,7 +50,8 @@ namespace ZebraPrinter
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+               
+                await context.Response.WriteAsync("Welcome to the Zebra Printer Hub");
             });
 
             app.ApplicationServices.GetService<IUserInterface>();

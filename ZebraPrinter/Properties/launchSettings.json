@@ -20,9 +20,7 @@
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "serverAddress": "http://10.0.2.2:8080/",
-      "hubName": "TestHub"
+      }
     }
   }
 }

@@ -99,3 +99,4 @@ C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\ZebraPrin
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.csproj.CopyComplete
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.exe
 C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\obj\Debug\net472\ZebraPrinter.pdb
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinter\bin\Debug\net472\HtmlAgilityPack.dll

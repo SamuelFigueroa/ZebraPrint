@@ -1,18 +1,12 @@
 ﻿using System;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.DependencyInjection;
-using ZebraPrint.Hubs;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
 using System.Windows.Threading;
 using System.Threading;
 using ZebraPrinterGUI;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System.Windows.Controls;
-using System.Net.Http;
 
 internal interface IUserInterface
 {
@@ -46,7 +40,7 @@ internal class UserInterface : IUserInterface
         tryConnect.Wait();
         (string serverStatus, string username) = tryConnect.Result;
         Task task = StartSTATask(() => {
-            _zebraPrinterGUI = new MainWindow(ConnectToServer, username, _httpClientService.BaseAddress, serverStatus);
+            _zebraPrinterGUI = new MainWindow(ConnectToServer, username, _httpClientService.ServerAddress, serverStatus);
             _zebraPrinterGUI.Show();
             Dispatcher.Run();
             username = _zebraPrinterGUI.Username;

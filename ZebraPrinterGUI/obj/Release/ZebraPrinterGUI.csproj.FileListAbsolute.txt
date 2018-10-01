@@ -1,0 +1,14 @@
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Release\ZebraPrinterGUI.exe.config
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Release\ZebraPrinterGUI.exe
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\bin\Release\ZebraPrinterGUI.pdb
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.csprojAssemblyReference.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\MainWindow.baml
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\MainWindow.g.cs
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\App.g.cs
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI_MarkupCompile.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.g.resources
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.Properties.Resources.resources
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.csproj.GenerateResource.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.csproj.CoreCompileInputs.cache
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.exe
+C:\Users\sammy\source\repos\ZebraPrinter\ZebraPrinterGUI\obj\Release\ZebraPrinterGUI.pdb

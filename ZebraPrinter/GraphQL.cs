@@ -21,15 +21,23 @@ internal class GQLPayloadVariables
 
     public GQLPayloadInputVariable input { get; set; }
     public string address { get; set; }
+    public string connection_name { get; set; }
 
     public bool ShouldSerializeinput()
     {
-        return (_operation == "loginUser" || _operation == "registerPrinterHub");
+        return (_operation == "loginUser" ||
+                _operation == "registerPrinterHub" ||
+                _operation == "updatePrinter" ||
+                _operation == "deletePrinterJob");
     }
 
     public bool ShouldSerializeaddress()
     {
         return (_operation == "getPrinterHub");
+    }
+    public bool ShouldSerializeconnection_name()
+    {
+        return (_operation == "getNextPrinterJob");
     }
 }
 internal class GQLPayloadInputVariable
@@ -48,6 +56,11 @@ internal class GQLPayloadInputVariable
     public string address { get; set; }
     public string user { get; set; }
     public bool online { get; set; }
+    public string connection_name { get; set; }
+    public bool queue { get; set; }
+    public bool reset { get; set; }
+    public bool dequeue { get; set; }
+    public string jobID { get; set; }
 
     public bool ShouldSerializelogin()
     {
@@ -72,6 +85,27 @@ internal class GQLPayloadInputVariable
     public bool ShouldSerializeonline()
     {
         return (_operation == "registerPrinterHub");
+    }
+    public bool ShouldSerializeconnection_name()
+    {
+        return (_operation == "updatePrinter" ||
+                _operation == "deletePrinterJob" );
+    }
+    public bool ShouldSerializequeue()
+    {
+        return (_operation == "updatePrinter");
+    }
+    public bool ShouldSerializereset()
+    {
+        return (_operation == "updatePrinter");
+    }
+    public bool ShouldSerializedequeue()
+    {
+        return (_operation == "deletePrinterJob");
+    }
+    public bool ShouldSerializejobID()
+    {
+        return (_operation == "deletePrinterJob");
     }
 }
 
@@ -122,6 +156,39 @@ internal class GQLGetHubData
 {
     public string user { get; set; }
     public string __typename { get; set; }
+}
+
+//UpdatePrinter Response Content
+internal class GQLUpdatePrinterResponse
+{
+    public GQLUpdatePrinterResponseData data { get; set; }
+    public GQLResponseError[] errors { get; set; }
+}
+internal class GQLUpdatePrinterResponseData
+{
+    public bool updatePrinter { get; set; }
+}
+
+//DeletePrinterJob Response Content
+internal class GQLDeletePrinterJobResponse
+{
+    public GQLDeletePrinterJobResponseData data { get; set; }
+    public GQLResponseError[] errors { get; set; }
+}
+internal class GQLDeletePrinterJobResponseData
+{
+    public bool? deletePrinterJob { get; set; }
+}
+
+//NextPrinterJob Response Content
+internal class GQLNextPrinterJobResponse
+{
+    public GQLNextPrinterJobResponseData data { get; set; }
+    public GQLResponseError[] errors { get; set; }
+}
+internal class GQLNextPrinterJobResponseData
+{
+    public JObject nextPrinterJob { get; set; }
 }
 
 //Error Response Content
