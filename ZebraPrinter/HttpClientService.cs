@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http.Formatting;
 using System.Collections.Generic;
 using HtmlAgilityPack;
-using System.Drawing;
 
 internal class HttpClientService
 {
@@ -18,9 +17,11 @@ internal class HttpClientService
     public string PrinterHubName { get; }
     public string ServerAddress { get; set; }
     public string PrinterAddress { get; set; }
+    public bool Connected { get; set; }
 
     public HttpClientService(HttpClient client, IServer server, IServiceProvider services, IConfiguration configuration)
     {
+        Connected = false;
         Client = client;
         ServerAddress = configuration.GetValue<string>("server");
         Client.BaseAddress = new Uri($"http://{ServerAddress}/");
@@ -60,10 +61,6 @@ internal class HttpClientService
             string imgSrc = htmlDoc.DocumentNode.SelectSingleNode("//body/div/img")
                 .Attributes["src"].Value;
             imageData = await hubClient.GetByteArrayAsync(hubClient.BaseAddress.AbsoluteUri + imgSrc);
-            //MemoryStream stream = new MemoryStream(imageData);
-            //Image image = Image.FromStream(stream);
-            //image.Save(@"C:\Users\sammy\OneDrive\Documents\test1.png", System.Drawing.Imaging.ImageFormat.Png);
-            //stream.Close();
         }
         catch (Exception e)
         {
@@ -110,7 +107,7 @@ internal class HttpClientService
         }
         return (errors, token);
     }
-    public async Task<(JObject errors, string response)> RegisterPrinterHub(string name, string address, string user)
+    public async Task<(JObject errors, string response)> RegisterPrinterHub(string name, string address, bool online)
     {
         JObject errors = new JObject();
         string response = null;
@@ -123,8 +120,7 @@ internal class HttpClientService
                 {
                     name = name,
                     address = address,
-                    online = true,
-                    user = user
+                    online = online,
                 }
             },
             query = "mutation registerPrinterHub($input: PrinterHubInput!) { registerPrinterHub(input: $input) { response __typename  } }"
@@ -198,7 +194,11 @@ internal class HttpClientService
             {
                 Client.DefaultRequestHeaders.Add("authorization", token);
           
-                (errors, response) = await RegisterPrinterHub(PrinterHubName, PrinterHubAddress, username);
+                (errors, response) = await RegisterPrinterHub(PrinterHubName, PrinterHubAddress, true);
+                if (!errors.HasValues)
+                {
+                    Connected = true;
+                }
             }
         }
         catch (HttpRequestException)
@@ -209,8 +209,29 @@ internal class HttpClientService
         {
             Console.WriteLine(e);
         }
-
+        
         return (errors, response);
+    }
+    public async Task DisconnectFromServer()
+    {
+        JObject errors = new JObject();
+        string response = null;
+
+        try
+        {
+            (errors, response) = await RegisterPrinterHub(PrinterHubName, PrinterHubAddress, false);
+        }
+        catch (HttpRequestException)
+        {
+            errors.Add("HttpRequest", "Server couldn't be reached");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        if (errors.HasValues)
+            Console.WriteLine(errors);
     }
     public async Task<(JObject errors, string username)> TryConnect()
     {

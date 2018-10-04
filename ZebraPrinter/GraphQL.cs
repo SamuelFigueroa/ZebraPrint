@@ -54,7 +54,6 @@ internal class GQLPayloadInputVariable
     public string password { get; set; }
     public string name { get; set; }
     public string address { get; set; }
-    public string user { get; set; }
     public bool online { get; set; }
     public string connection_name { get; set; }
     public bool queue { get; set; }
@@ -71,10 +70,6 @@ internal class GQLPayloadInputVariable
         return (_operation == "loginUser");
     }
     public bool ShouldSerializename()
-    {
-        return (_operation == "registerPrinterHub");
-    }
-    public bool ShouldSerializeuser()
     {
         return (_operation == "registerPrinterHub");
     }

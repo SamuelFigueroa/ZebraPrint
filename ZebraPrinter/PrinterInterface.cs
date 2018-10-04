@@ -19,7 +19,7 @@ internal interface IPrinterInterface
 {
     Task<(JObject errors, byte[] imageData)> PreviewZpl(string zpl);
     Task ReadAvailableData();
-    Task WriteAvailableData();
+    void WriteAvailableData();
     Task StartJob(string connection_name);
     Task<(JObject errors, JObject job)> GetNextPrinterJob(string connection_name);
     Task<(JObject errors, bool? response)> PauseQueue(string connection_name);
@@ -133,7 +133,7 @@ internal class PrinterInterface : IPrinterInterface
         }
     }
     
-    public async Task WriteAvailableData()
+    public void WriteAvailableData()
     {
 
         string data;

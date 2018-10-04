@@ -28,14 +28,13 @@ namespace ZebraPrinter
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IConfiguration configuration)
+        public void Configure(IApplicationBuilder app, IApplicationLifetime appLifetime, IHostingEnvironment env, IConfiguration configuration)
         {
             string serverAddress = configuration.GetValue<string>("server");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseCors(builder =>
                        builder
                        .AllowAnyMethod()
